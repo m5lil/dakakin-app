@@ -71,7 +71,7 @@ options.srcPath = 'app/src/';        // path to your app source folder
 
 options.paths = {
     sass: options.srcPath + 'sass/',
-    js: options.srcPath + '_js/',
+    js: options.srcPath + 'js/',
     images: options.srcPath + 'images/',
     fonts: options.srcPath + 'fonts/',
     pages: options.srcPath + 'pages/',
@@ -206,6 +206,10 @@ gulp.task('modernizr', function () {
         .pipe(gulp.dest(options.paths.destJs));
 });
 
+gulp.task('pluginsjs', function () {
+    return gulp.src(options.paths.js + 'plugins/*.js')
+        .pipe(gulp.dest(options.paths.destJs));
+});
 
 // SVG sprite
 gulp.task('svg', function () {
@@ -290,6 +294,7 @@ gulp.task('serve', [
         'sass',
         // 'jshint',
         //'modernizr',
+        'pluginsjs',
         'pages',
         'images',
         'svg',
@@ -331,7 +336,7 @@ gulp.task('serve:dist', ['default'], function () {
 gulp.task('build', ['clean'], function () {
     gutil.env.type = 'prod';
     //gulp.start('sass', 'modernizr', 'images', 'svg', 'fonts');
-    gulp.start('sass', 'images', 'svg', 'fonts', 'pages');
+    gulp.start('sass', 'images', 'svg', 'pluginsjs', 'fonts', 'pages');
 
     var bundler = browserify('./app/src/js/app.js', browserify_config) // Browserify
         .transform(babelify, {presets: ['es2015']}); // Babel tranforms

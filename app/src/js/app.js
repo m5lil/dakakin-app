@@ -1,7 +1,7 @@
 'use strict';
 
 
-import './modules/helpers';
+// import './modules/helpers';
 
 // Import jQuery (if you need jquery);
 import $ from 'jquery';
@@ -14,8 +14,12 @@ import theiaStickySidebar from'./modules/theia-sticky-sidebar';
 import sticky from'./modules/jquery.sticky';
 import sidr from'./modules/jquery.sidr';
 
-
 $(document).ready(function () {
+
+
+    Pace.on("done", function(){
+        $("#wrapper").fadeIn(2000);
+    });
 
 
 

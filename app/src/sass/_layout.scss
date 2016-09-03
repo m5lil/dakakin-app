@@ -68,6 +68,7 @@ WebSite Wrapper
 #wrapper {
     background: transparent;
     @include breakpoint-label;
+    display: none;
 }
 
 .container {
