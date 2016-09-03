@@ -1,0 +1,115 @@
+html,
+button,
+input,
+select,
+textarea {
+  color: $color-text;
+  font-family: $font-stack;
+}
+
+
+/* =======================================================================
+Font-face
+========================================================================== */
+
+@include font-face('DINNextLTW23-Regular', '../fonts/DINNextLTW23-Regular');
+@include font-face('DINNextLTW23-Light', '../fonts/DINNextLTW23-Light');
+@include font-face('DINNextLTW23-Bold', '../fonts/DINNextLTW23-Bold');
+@include font-face('DroidNaskh-Regular', '../fonts/DroidNaskh-Regular');
+
+/* ======================================================================= */
+
+// 
+// @include border-box-sizing;
+
+
+*:hover{
+  @include anime(all, .2s, linear);
+}
+
+
+body {
+  direction: rtl;
+  background: #fff;
+  font-family: $font-stack;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+}
+
+a {
+  color: $color-link;
+  text-decoration: none;
+  &:visited {
+    color: $color-link-visited;
+  }
+  &:hover {
+    color: $color-link-hover;
+  }
+  &:focus,
+  &:active {
+    color: $color-link-active;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-stack-b;
+}
+
+img {
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+blockquote{
+  border-left: 0.3rem solid #d1d1d1;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 1rem 1.5r;
+}
+blockquote *:last-child{
+  margin: 0;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+
+// Selection
+::-moz-selection {
+  background: $color-selection;
+  text-shadow: none;
+}
+
+::selection {
+  background: $color-selection;
+  text-shadow: none;
+}
+
+// Placeholder color
+::-webkit-input-placeholder { /* WebKit browsers */
+  color: $color-placeholder;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: $color-placeholder;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: $color-placeholder;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color: $color-placeholder;
+}

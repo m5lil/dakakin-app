@@ -1,0 +1,42 @@
+extends ../_layout
+
+block content
+    #top-bar
+        .container  
+            .glogo
+                a#toggle-menu(href="#sidr"): i.fa.fa-navicon
+                a(href="#"): img(src="images/glogo.png", alt="").element-animated.slide-from-left 
+                #sidr
+                    img(src="images/logoBeta.png", alt="")
+
+            .login-form
+                #session
+                    #signin-link 
+                        i.fa.fa-unlock-alt 
+                #signin-dropdown
+                    h4 تسجيل دخول التاجر 
+                    form(action="#")
+                        .fieldset
+                            label.username
+                            input(id="email",type="email",class="f-input")
+                            label.password
+                            input(id="password",type="password",class="f-input")
+                        .fieldset
+                            button(id="submit", type="submit") تسجيل الدخول
+                            button(id="submit", type="submit") إنشاء حساب جديد
+                        .fieldset
+                            label
+                                input(type="checkbox")
+                                span.label-text  خليك فاكرنى
+            .gsearch
+                form(action="#")
+                    input(type="search", placeholder="إبحث عن منتج")
+                    select(name="categories")
+                        option(value="1" selected) ملابس
+                        option(value="2") ملابس
+                        option(value="3") ملابس
+                    button(id="submit", type="submit"): i.fa.fa-search
+    .clearfix
+    .content
+        .container  
+            h4.element-animated.slide-from-top.infinite بيال

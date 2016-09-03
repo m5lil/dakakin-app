@@ -1,0 +1,246 @@
+// http://nicolasgallagher.com/micro-clearfix-hack/
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+  *zoom: 1;
+}
+
+
+
+/// Given the location of a webfont, will generate a font-face declaration with multiple file formats.
+/// @access public
+/// @param {String} $font-name - Font family name
+/// @param {String} $file-name - File name (no extension)
+/// @param {String | Number} $weight [normal] - Font weight
+/// @param {String} $style [normal] - Font style
+/// @example scss - Usage
+///   @include font-face('gotham', '/fonts/gotham');
+@mixin font-face($font-name, $file-name, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: quote($font-name);
+    src: url($file-name + '.eot');
+    src: url($file-name + '.eot?#iefix')  format('embedded-opentype'),
+         url($file-name + '.woff') format('woff'),
+         url($file-name + '.ttf')  format('truetype'),
+         url($file-name + '.svg##{$font-name}')  format('svg');
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+
+
+// Convert pixels to rem
+// eg. for a relational value of 12px write rem(12px) when the base font value of the document is 16px
+// We could start using this as it's supported in nearly every browser, with the exception of IE8.
+// It will just end up using the pixel size you initially inserted.
+// Credit: http://zerosixthree.se/8-sass-mixins-you-must-have-in-your-toolbox/
+@function calculate-rem($size) {
+  $rem-size: $size / 16px;
+  @return $rem-size * 1rem;
+}
+
+@mixin remsize($size) {
+  font-size: $size;
+  font-size: calculate-rem($size);
+}
+
+
+
+// Credit: https://github.com/thoughtbot/bourbon/blob/master/app/assets/stylesheets/addons/_hide-text.scss
+@mixin hide-text {
+  background-color: transparent;
+  border: 0;
+  color: transparent;
+  font: 0/0 a;
+  text-shadow: none;
+}
+
+/* Usage examples
+ * @include anime(opacity);
+ * @include anime((opacity, padding, margin)); // multiple properties can be passed by wrapping with () brackets
+ * @include anime((opacity, padding, margin), 0.5s, ease-in, 0.25s); // you can set duration and timing function
+ * @include anime(); // will animate all properties */
+@mixin anime($props: all, $duration: 0.2s, $timing: ease-out, $delay: 0s) {
+  transition: {
+    duration: $duration;
+    property: $props;
+    timing-function: $timing;
+    delay: $delay;
+  }
+}
+
+
+
+
+@mixin transform($transforms) {
+     -moz-transform: $transforms;
+       -o-transform: $transforms;
+      -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+          transform: $transforms;
+}
+
+
+
+
+
+
+//  Centering Elements
+
+/* Usage examples
+.foo {
+  @include center(both);
+}
+.foo-parent {
+  position: relative;
+} */
+
+@mixin center($position) {
+  position: absolute;
+
+  @if $position == 'vertical' {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+  @else if $position == 'horizontal' {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translate(-50%);
+  }
+
+  @else if $position == 'both' {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+}
+
+
+// Usage:  @include opacity(0.5);
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity * 100})";
+}
+
+// Usage: @include text-shadow(0.5);
+@mixin text-shadow($value) {
+    text-shadow: rgba(0, 0, 0, $value) 0 1px 0;
+}
+
+
+
+
+/// Retina image media query helper; given an image path with a 2x-sized version of an image, will load that image as a background-image on high-resolution devices.
+/// @access public
+/// @param {String} $image - Image path
+/// @param {Length} $width - Image width
+/// @param {Height} $height - Image height
+/// @example scss - Usage
+///   .foo {
+///     @include image-2x('../images/image.png', 100%, auto);
+///   }
+@mixin image-2x($image, $width, $height) {
+    @media (-webkit-min-device-pixel-ratio: 1.3),
+           (min-resolution: 124dpi),
+           (min-resolution: 1.3dppx) {
+        /* on retina, use image that's scaled by 2 */
+        background-image: url($image);
+        background-size: $width $height;
+    }
+}
+
+
+
+/// Background gradient helper
+/// @access public
+/// @param {Color} $start-color - Start color
+/// @param {Color} $end-color - End color
+/// @param {String} $orientation - Type of gradient, either `vertical`, `horizontal` or `radial`
+/// @example scss - Usage
+///   .foo {
+///     @include background-gradient(red, black, 'vertical');
+///   }
+/// @example css - Result
+///   .foo {
+///     background: -webkit-linear-gradient(top, red, black);
+///     background: linear-gradient(to bottom, red, black);
+///   }
+@mixin background-gradient($start-color, $end-color, $orientation) {
+    background: $start-color;
+
+    @if $orientation == 'vertical' {
+      background: -webkit-linear-gradient(top, $start-color, $end-color);
+      background: linear-gradient(to bottom, $start-color, $end-color);
+    } @else if $orientation == 'horizontal' {
+      background: -webkit-linear-gradient(left, $start-color, $end-color);
+      background: linear-gradient(to right, $start-color, $end-color);
+    } @else {
+      background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color);
+      background: radial-gradient(ellipse at center, $start-color, $end-color);
+    }
+}
+
+
+
+/// Vertically centers block elements with known height.
+/// @access public
+/// @param {Length} $height - Element's height
+/// @example scss - Usage
+///   .foo {
+///     @include center-h(42px);
+///   }
+/// @example css - Result
+///   .foo {
+///     position: absolute;
+///     top: 50%;
+///     height: 42px;
+///     margin-top: -21px;
+///   }
+@mixin center-h($height) {
+    position: absolute;
+    top: 50%;
+    height: $height;
+    margin-top: -($height / 2);
+}
+
+
+/// Adds a thin black line above the element, and a thin gray line below the element, creating an inlay effect.
+@mixin outline {
+    box-shadow: rgba(255, 255, 255, 0.5) 0 1px 0, inset rgba(0, 0, 0, 0.75) 0 1px 0;
+}
+
+
+
+/// Generates line-height values in both pixels and rems.
+/// @access public
+/// @param {Number} $height-value [12] - Height value
+/// @example scss - Usage
+///   .foo {
+///     @include line-height(16);
+///   }
+/// @example css - Result
+///   .foo {
+///     line-height: 16px;
+///     line-height: 1rem;
+///   }
+@mixin line-height($height-value: 12) {
+    line-height: $height-value * 1px; //fallback for old browsers
+    line-height: (1 / ($base-font-size / ($base-font-size * 0 + 1)) * $height-value * 1rem);
+}
+
+
+

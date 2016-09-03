@@ -1,0 +1,46 @@
+{
+  "name": "starter",
+  "description": "HTML, Sass, JS starter kit running on Gulp and ES2015",
+  "version": "0.2.0",
+  "author": "Mahmoud Khalil",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "*",
+    "babelify": "*",
+    "browser-sync": "*",
+    "browserify": "*",
+    "chalk": "*",
+    "gulp": "*",
+    "gulp-autoprefixer": "*",
+    "gulp-changed": "*",
+    "gulp-clean-css": "*",
+    "gulp-duration": "*",
+    "gulp-imagemin": "*",
+    "gulp-jade": "^1.1.0",
+    "gulp-jshint": "*",
+    "gulp-minify-css": "*",
+    "gulp-rename": "*",
+    "gulp-rev": "*",
+    "gulp-sass": "*",
+    "gulp-size": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-svg-sprite": "*",
+    "gulp-uglify": "*",
+    "gulp-util": "*",
+    "jshint": "*",
+    "jshint-stylish": "*",
+    "lodash": "*",
+    "rimraf": "*",
+    "susy": "*",
+    "vinyl-buffer": "*",
+    "vinyl-source-stream": "*",
+    "watchify": "*"
+  },
+  "dependencies": {
+    "fastclick": "*",
+    "jquery": "*"
+  }
+}

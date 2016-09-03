@@ -1,0 +1,307 @@
+  /* =======================================================================
+loading
+========================================================================== */
+#loader{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #f0f0f0;
+  height: 100%;
+  width: 100%;
+  z-index: 99999;
+	.loader-loading {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 105;
+      display: block;
+      margin: auto;
+      width: 40px;
+  		height: 40px;
+  		background-color: #333;
+  		margin: 200px auto;
+  		-webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+  		animation: sk-rotateplane 1.2s infinite ease-in-out;
+	}
+}
+
+
+
+
+
+/* =======================================================================
+WebSite Side Menu
+========================================================================== */
+
+.sidr{
+  display:block;
+  position:fixed;
+  top:0;
+  height:100%;
+  z-index:999999;
+  width:200px;
+  overflow-x:hidden;
+  overflow-y:auto;
+  background-color: $aaa;
+  color: #fff;
+  padding: 20px;
+  border-left: 2px solid #fff;
+}
+
+.sidr.right{
+  left:auto;
+  right:-260px;
+}
+
+.sidr.left{
+  left:-260px;
+  right:auto;
+}
+
+/* =======================================================================
+WebSite Wrapper
+========================================================================== */
+
+#wrapper {
+    background: transparent;
+    @include breakpoint-label;
+}
+
+.container {
+  @include container;
+}
+
+
+
+#top-bar{
+  background-color: $aa;
+  height: 30px;
+  .glogo{
+    img{
+      margin-bottom: 7px;
+    }
+    padding-top: 3px;
+    @include span(first 6);
+    #toggle-menu{
+      padding-left: 10px;
+      color: #fff;
+
+    }
+  }
+  .login-form{ 
+    @include span(1);
+    position: relative;
+    #session{
+      @include mq('small'){
+        display: none;
+      }
+      cursor: pointer;
+      // background-color: #fff;
+      // margin-right: 67px;
+      width: 30px;
+      height: 30px;
+      display: inline-block;
+      #signin-link {
+          padding-top: 4px;
+      }
+      &:hover,&.active{
+        background-color: $aaa;
+        color: $aa;
+        i{
+          color: #fff;
+        }
+      }
+      i{
+        color: #fff;
+        padding-right: 10px;
+        // line-height: 1.9;
+      }
+    }
+    #signin-dropdown{
+      color: #fff;
+      position: absolute;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      box-shadow: 0 1px 2px #666666;
+      padding: 10px;
+      width: 250px;
+      min-width: 200px;
+      min-height: 250px;
+      // right: 67px;
+      background-color: $aaa;
+      h4{
+        text-align: center;
+        margin: 8px auto;
+      }
+      display: none;
+      input{
+        background-color: $aa;
+        color: #fff;
+      }
+      label{
+        cursor: pointer;
+        input[type="checkbox"]{
+          display: none;
+          + .label-text:before{
+            content: "\f096";
+            font-family: "FontAwesome";
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            width: 1em;
+            display: inline-block;
+            margin-right: 5px;
+          }
+          &:checked + .label-text:before{
+            content: "\f14a";
+            color: #06a3e9;
+            @include anime(tick 180ms ease-in);
+          }
+          &:disabled + .label-text{
+            color: #aaa;
+
+            &:before{
+              content: "\f0c8";
+              color: #ccc;
+            }
+          }
+        }
+      }
+      button{
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+  .gsearch{
+    @include span(5 last) ;
+
+    input[type="search"]{
+      // background-color: $aaa;
+      width: 200px;
+      color: #ccc;
+      max-height: 30px;
+      padding-top: -2px;
+      &:focus::-webkit-input-placeholder {
+          color: #fff;
+      }
+    }
+    select{
+      width : 140px;
+      max-width : 140px;
+      background-color: $aaa;
+      color: #596c80;
+      padding-right: 25px;
+      position: relative;
+      margin-right: -4px;
+      background: url(../images/down-arrow.png) no-repeat 97% center;
+
+    }
+    button{
+      width: 30px;
+      height: 30px;
+      max-height: 30px;
+      margin: 0;
+      padding: 0 5px;
+      background-color: $aa;
+      &:hover{
+        background-color: $aaa;
+      }
+    }
+  }
+  // @include clearfix;
+}
+
+
+
+
+// @include clearfix;
+
+
+/* =======================================================================
+Header
+========================================================================== */
+.banner {
+}
+
+/* =======================================================================
+Footer
+========================================================================== */
+#footer {
+  // @include clearfix;
+  p{
+    text-align: center;
+    width: 100%;
+  }
+  
+  #heart {
+    position: relative;
+    width: 20px;
+    height: 12px;
+    display: inline-block;
+    animation: heartbeat 1s infinite;
+
+    &:before,
+    &:after {
+      position: absolute;
+      content: "";
+      left: 10px;
+      top: 0;
+      width: 10px;
+      height: 16px;
+      background: red;
+      -moz-border-radius: 50px 50px 0 0;
+      border-radius: 50px 50px 0 0;
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+      -o-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      -webkit-transform-origin: 0 100%;
+      -moz-transform-origin: 0 100%;
+      -ms-transform-origin: 0 100%;
+      -o-transform-origin: 0 100%;
+      transform-origin: 0 100%;
+    }
+
+    &:after {
+      left: 0;
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg);
+      -webkit-transform-origin: 100% 100%;
+      -moz-transform-origin: 100% 100%;
+      -ms-transform-origin: 100% 100%;
+      -o-transform-origin: 100% 100%;
+      transform-origin: 100% 100%;
+    }
+  } 
+
+}
+
+/* =======================================================================
+Nav
+========================================================================== */
+.primary-nav {
+}
+
+
+
+
+
+.content{
+  // @include clearfix;
+  p{
+    @include text-shadow(0.5);
+  }
+}
+
