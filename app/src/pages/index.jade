@@ -1,42 +1,48 @@
 extends ../_layout
 
 block content
-    #top-bar
+    .top_bar
         .container
-            .glogo
-                a#toggle-menu(href="#sidr"): i.fa.fa-navicon
-                a(href="#"): img(src="images/glogo.png", alt="").element-animated.slide-from-left 
+            .logo
+                .side-menu: span.icon-menu#toggle-menu(href="#sidr")
+                a(href="#"): img(src="images/glogo.png", alt="")
                 #sidr
                     img(src="images/logoBeta.png", alt="")
+            .search_form
+                a#login-link(href="#animatedModal"): .icon-user
 
-            .login-form
-                #session
-                    #signin-link 
-                        i.fa.fa-unlock-alt 
-                #signin-dropdown
-                    h4 تسجيل دخول التاجر 
-                    form(action="#")
-                        .fieldset
-                            label.username
-                            input(id="email",type="email",class="f-input")
-                            label.password
-                            input(id="password",type="password",class="f-input")
-                        .fieldset
-                            button(id="submit", type="submit") تسجيل الدخول
-                            button(id="submit", type="submit") إنشاء حساب جديد
-                        .fieldset
-                            label
-                                input(type="checkbox")
-                                span.label-text  خليك فاكرنى
-            .gsearch
-                form(action="#")
-                    input(type="search", placeholder="إبحث عن منتج")
+                #animatedModal
+                    .close-animatedModal.closemodal: img.closebt(src="images/closebt.svg", alt="")
+                    .modal-content
+                        h3 تسجيل دخول التاجر 
+                        .login-form
+                            form(action="#")
+                                .fieldset
+                                    input(id="email",type="email",class="f-input")
+                                    input(id="password",type="password",class="f-input")
+                                .fieldset
+                                    button(id="submit", type="submit") تسجيل الدخول
+                                    button(id="submit", type="submit") إنشاء حساب جديد
+                form.search(action="")
+                    input(type="text",placeholder="البحث عن ...")
                     select(name="categories")
-                        option(value="1" selected) ملابس
+                        option(value="1" selected) إختر القسم
                         option(value="2") ملابس
                         option(value="3") ملابس
                     button(id="submit", type="submit"): i.fa.fa-search
-    .clearfix
-    .content
-        .container  
-            //- img(src="http://lorempixel.com/1900/900/", alt="")
+    header
+        .main-menu
+            .container
+                .main_logo
+                    a(href="#"): img(src="images/logoBeta.png", alt="")
+                button.mobile_menu.block: .icon-menu القائمة الرئيسية
+                nav
+                    ul
+                        li: a(href="#") الدكاكين
+                        li: a(href="#") عروض
+                        li: a(href="#") من نحن
+
+
+
+
+

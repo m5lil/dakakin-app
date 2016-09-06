@@ -10,22 +10,26 @@ Project Name
 
 @import "susy/susy";  
 
-
 // Mixins, helpers & variables (@font-face fonts are in variables)
 @import "variables";
 
 @import "mixins";
 
+@import "super-gradient";
+
 @import "mediaquery";
 
 @import "helpers";
 
+@import "family";   // http://lukyvj.github.io/family.scss/
 
 // Animations
 @import "anim";
 
 @import "animations-source";
 
+// Modules (could be also used for page specific styles)
+@import "modules";
 
 // Base/defaults (html, body, typography, headings, lists, etc)
 @import "base";
@@ -33,10 +37,5 @@ Project Name
 // Layout, grid, header, footer
 @import "layout";
 
-// Modules (could be also used for page specific styles)
-@import "modules";
-
-
 // Print
-
 @import "print";

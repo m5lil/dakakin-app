@@ -61,6 +61,33 @@ body {
   line-height: $line-height-base;
 }
 
+
+
+.container{
+  @include container;
+  @media (min-width: 300px){
+    max-width: 90% !important;
+  }
+  @media (min-width: 479px){
+    max-width: 470px !important;
+  }
+  @media (min-width: 599px){
+    max-width: 590px !important;
+  }
+  @media (min-width: 767px){
+    max-width: 760px !important;
+  }
+  @media (min-width: 1024px){
+    max-width: 960px !important;
+  }
+  @media (min-width: 1200px){
+    max-width: 1070px !important;
+  }
+}
+
+
+
+
 a {
   color: $color-link;
   text-decoration: none;
@@ -79,6 +106,8 @@ a {
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-stack-b;
 }
+
+
 
 img {
   vertical-align: middle;

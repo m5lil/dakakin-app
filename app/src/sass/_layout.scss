@@ -1,37 +1,3 @@
-  /* =======================================================================
-loading
-========================================================================== */
-#loader{
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  background: #f0f0f0;
-  height: 100%;
-  width: 100%;
-  z-index: 99999;
-	.loader-loading {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: 105;
-      display: block;
-      margin: auto;
-      width: 40px;
-  		height: 40px;
-  		background-color: #333;
-  		margin: 200px auto;
-  		-webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
-  		animation: sk-rotateplane 1.2s infinite ease-in-out;
-	}
-}
-
-
-
-
-
 /* =======================================================================
 WebSite Side Menu
 ========================================================================== */
@@ -42,7 +8,7 @@ WebSite Side Menu
   top:0;
   height:100%;
   z-index:999999;
-  width:200px;
+  width:300px;
   overflow-x:hidden;
   overflow-y:auto;
   background-color: $aaa;
@@ -53,11 +19,11 @@ WebSite Side Menu
 
 .sidr.right{
   left:auto;
-  right:-260px;
+  right:-360px;
 }
 
 .sidr.left{
-  left:-260px;
+  left:-360px;
   right:auto;
 }
 
@@ -71,166 +37,192 @@ WebSite Wrapper
     display: none;
 }
 
-.container {
-  @include container;
-}
 
+/* =======================================================================
+Top Bar
+========================================================================== */
 
-
-#top-bar{
-  background-color: $aa;
-  height: 30px;
-  .glogo{
-    img{
-      margin-bottom: 7px;
+.top_bar{
+  overflow: hidden;
+  height: 40px;
+  background: darken($navy, 5%);
+  .logo{
+    // padding: 6px;
+    @include span(first 3);
+    .side-menu{
+      display: inline-block;
+      padding: 8px;
+      color: $white;
+      cursor: pointer;
     }
-    padding-top: 3px;
-    @include span(first 6);
-    #toggle-menu{
-      padding-left: 10px;
-      color: #fff;
-
+    a{
+      padding-right: 5px;
     }
   }
-  .login-form{ 
-    @include span(1);
-    position: relative;
-    #session{
-      @include mq('small'){
-        display: none;
-      }
-      cursor: pointer;
-      // background-color: #fff;
-      // margin-right: 67px;
-      width: 30px;
-      height: 30px;
-      display: inline-block;
-      #signin-link {
-          padding-top: 4px;
-      }
-      &:hover,&.active{
-        background-color: $aaa;
-        color: $aa;
-        i{
-          color: #fff;
+  .search_form{
+    // position: relative;
+    // padding: 6px;
+    text-align: left;
+    max-height: 40px;
+    @include span(last 9);
+    .closemodal{
+      position: relative;
+      width: 100%;
+      text-align: center;
+      margin-top: 30px;
+      font-size: 30px;
+      .closebt{
+        transition: all 0.2s;
+        cursor: pointer;
+        &:hover{
+          transform: rotate(90deg);
         }
       }
-      i{
-        color: #fff;
-        padding-right: 10px;
-        // line-height: 1.9;
+    }
+    #login-link{
+      padding: 9px;
+      display: inline-block;
+      .icon-user{
+        color: $white;
       }
     }
-    #signin-dropdown{
-      color: #fff;
-      position: absolute;
-      border-bottom-left-radius: 5px;
-      border-bottom-right-radius: 5px;
-      box-shadow: 0 1px 2px #666666;
-      padding: 10px;
-      width: 250px;
-      min-width: 200px;
-      min-height: 250px;
-      // right: 67px;
-      background-color: $aaa;
-      h4{
-        text-align: center;
-        margin: 8px auto;
-      }
+    h3{
+      text-align: center;
+      margin-top: 20%;
+    }
+    .login-form{
       display: none;
+    // position: fixed;
+      @include center('both');
+      z-index: 999;
+      color: #fff;
+      width: 350px;
+      background: $navy;
+      padding: 30px;
+      button{
+        width: 100%;
+        display: block;
+      }
+      input:not([type="checkbox"]){
+        background: darken($navy, 5%);
+        width: 100%;
+        color: $white;
+      }
+
+    }
+
+
+    form.search{
+      background-color: $navy;
+      @include mq('medium'){
+        display: none;
+      }
+      display: inline-block;
+      max-height: 40px;
       input{
-        background-color: $aa;
+        width: 200px;
+        color: $white;
+        border: 0;
+      }
+      select{
+        color: #596c80;
+        border: 0;
+        width: 130px;
+      }
+      button{
+        width: 30px;
+        height: 40px;
+        max-height: 40px;
+        padding: 0px;
+        margin: 0;
+        background-color: transparent;
         color: #fff;
       }
-      label{
-        cursor: pointer;
-        input[type="checkbox"]{
-          display: none;
-          + .label-text:before{
-            content: "\f096";
-            font-family: "FontAwesome";
-            speak: none;
-            font-style: normal;
-            font-weight: normal;
-            font-variant: normal;
-            text-transform: none;
-            line-height: 1;
-            -webkit-font-smoothing: antialiased;
-            width: 1em;
-            display: inline-block;
-            margin-right: 5px;
-          }
-          &:checked + .label-text:before{
-            content: "\f14a";
-            color: #06a3e9;
-            @include anime(tick 180ms ease-in);
-          }
-          &:disabled + .label-text{
-            color: #aaa;
+    }
+  }
+}
 
-            &:before{
-              content: "\f0c8";
-              color: #ccc;
+header{
+  @include sgradient(linear,left,((#FF5F6D,0%),(#FFC371,100%)));
+  .main-menu{
+    text-align: center;
+    height: 100px;
+    background-color: rgba(255,255,255,0.7);
+    .main_logo{
+      @include span(first 3);
+      padding: 20px;
+      img{
+        min-width: 187px;
+        height: 60px;
+      }
+      @include mq('medium'){
+        @include span(12);
+      }
+    }
+    button{
+      display: none;
+      @include mq('medium'){
+        display: block;
+        height: 39px;
+        color: #fff;
+      }
+    }
+    nav{
+      // max-height: 100px;
+      @include span(last 9);
+      ul{
+        padding: 40px;
+        list-style-type: none;
+        li{
+          display: inline-block;
+          padding: 0 8px;
+
+        }
+      }
+      @include mq('medium'){
+        @include span(12);
+        display: none;
+        background-color: #FFF;
+        ul{
+          width: 100%;
+          padding: 0;
+          li{
+            padding: 10px;
+            display: block;
+            &:hover{
+              color: #FFF;
+              background-color:$navy;
+              a{color: #FFF;}
+            }
+            a{
+              padding: 10px;
             }
           }
         }
       }
-      button{
-        display: block;
-        width: 100%;
-      }
-    }
-  }
-  .gsearch{
-    @include span(5 last) ;
-
-    input[type="search"]{
-      // background-color: $aaa;
-      width: 200px;
-      color: #ccc;
-      max-height: 30px;
-      padding-top: -2px;
-      &:focus::-webkit-input-placeholder {
-          color: #fff;
-      }
-    }
-    select{
-      width : 140px;
-      max-width : 140px;
-      background-color: $aaa;
-      color: #596c80;
-      padding-right: 25px;
-      position: relative;
-      margin-right: -4px;
-      background: url(../images/down-arrow.png) no-repeat 97% center;
 
     }
-    button{
-      width: 30px;
-      height: 30px;
-      max-height: 30px;
-      margin: 0;
-      padding: 0 5px;
-      background-color: $aa;
-      &:hover{
-        background-color: $aaa;
-      }
-    }
   }
-  // @include clearfix;
 }
 
-
-
-
-// @include clearfix;
 
 
 /* =======================================================================
 Header
 ========================================================================== */
+
+
+
+
+
+
 .banner {
 }
+
+
+
+
+
 
 /* =======================================================================
 Footer
@@ -258,35 +250,33 @@ Footer
       width: 10px;
       height: 16px;
       background: red;
-      -moz-border-radius: 50px 50px 0 0;
       border-radius: 50px 50px 0 0;
-      -webkit-transform: rotate(-45deg);
-      -moz-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
-      -o-transform: rotate(-45deg);
       transform: rotate(-45deg);
-      -webkit-transform-origin: 0 100%;
-      -moz-transform-origin: 0 100%;
-      -ms-transform-origin: 0 100%;
-      -o-transform-origin: 0 100%;
       transform-origin: 0 100%;
     }
 
     &:after {
       left: 0;
-      -webkit-transform: rotate(45deg);
-      -moz-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-      -o-transform: rotate(45deg);
       transform: rotate(45deg);
-      -webkit-transform-origin: 100% 100%;
-      -moz-transform-origin: 100% 100%;
-      -ms-transform-origin: 100% 100%;
-      -o-transform-origin: 100% 100%;
       transform-origin: 100% 100%;
     }
   } 
 
+}
+
+
+
+/* - Go top - */
+.go-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9;
+  width: 30px;
+  height: 30px;
+  svg {
+    cursor: pointer;
+  }
 }
 
 /* =======================================================================
@@ -305,4 +295,7 @@ Nav
     @include text-shadow(0.5);
   }
 }
+
+
+
 

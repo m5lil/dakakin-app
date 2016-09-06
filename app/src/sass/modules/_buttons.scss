@@ -6,6 +6,7 @@ input[type='submit'] {
   // border: 0.1rem solid #fff;
   color: #fff;
   cursor: pointer;
+  outline: none;
   display: inline-block;
   font-weight: 400;
   height: 2rem;
@@ -20,74 +21,26 @@ input[type='submit'] {
   -ms-touch-action: manipulation;
       touch-action: manipulation;
   margin: 3px auto;
+  
+  &:hover,&:focus{
+    background-color: $aa;
+    border-color: #606c76;
+    background: darken($navy, 5%);
+    outline: 0;
+  }
+  &[disabled]{
+    opacity: 0.5;
+    cursor: default;
+  }
+  @include mq(small){
+    width: 100%;
+  }
+  @include mq(medium){
+    width: 100%;
+  }
 
 }
 
-.button:hover, .button:focus,
-button:hover,
-button:focus,
-input[type='button']:hover,
-input[type='button']:focus,
-input[type='reset']:hover,
-input[type='reset']:focus,
-input[type='submit']:hover,
-input[type='submit']:focus {
-  background-color: $aa;
-  border-color: #606c76;
-  color: #fff;
-  outline: 0;
-}
-
-.button.button-disabled, .button[disabled],
-button.button-disabled,
-button[disabled],
-input[type='button'].button-disabled,
-input[type='button'][disabled],
-input[type='reset'].button-disabled,
-input[type='reset'][disabled],
-input[type='submit'].button-disabled,
-input[type='submit'][disabled] {
-  opacity: 0.5;
-  cursor: default;
-}
-
-.button.button-disabled:hover, .button.button-disabled:focus, .button[disabled]:hover, .button[disabled]:focus,
-button.button-disabled:hover,
-button.button-disabled:focus,
-button[disabled]:hover,
-button[disabled]:focus,
-input[type='button'].button-disabled:hover,
-input[type='button'].button-disabled:focus,
-input[type='button'][disabled]:hover,
-input[type='button'][disabled]:focus,
-input[type='reset'].button-disabled:hover,
-input[type='reset'].button-disabled:focus,
-input[type='reset'][disabled]:hover,
-input[type='reset'][disabled]:focus,
-input[type='submit'].button-disabled:hover,
-input[type='submit'].button-disabled:focus,
-input[type='submit'][disabled]:hover,
-input[type='submit'][disabled]:focus {
-  background-color: #fff;
-  border-color: #fff;
-}
-
-.button.button-outline,
-button.button-outline,
-input[type='button'].button-outline,
-input[type='reset'].button-outline,
-input[type='submit'].button-outline {
-  color: #fff;
-  background-color: transparent;
-}
-
-.button.button-block,
-button.button-block,
-input[type='button'].button-block,
-input[type='reset'].button-block,
-input[type='submit'].button-block {
-  display: block;
-}
 
 .button.button-outline:hover, .button.button-outline:focus,
 button.button-outline:hover,
