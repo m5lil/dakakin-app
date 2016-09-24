@@ -23,7 +23,7 @@ input[type='submit'] {
   margin: 3px auto;
   
   &:hover,&:focus{
-    background-color: $aa;
+    background-color: $second-color;
     border-color: #606c76;
     background: darken($navy, 5%);
     outline: 0;

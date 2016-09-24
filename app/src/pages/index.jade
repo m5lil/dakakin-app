@@ -1,6 +1,11 @@
 extends ../_layout
 
 block content
+
+
+
+    //-  Top Bar -//////////////////////////////////////////////////
+
     .top_bar
         .container
             .logo
@@ -14,12 +19,12 @@ block content
                 #animatedModal
                     .close-animatedModal.closemodal: img.closebt(src="images/closebt.svg", alt="")
                     .modal-content
-                        h3 تسجيل دخول التاجر 
                         .login-form
+                            h3 تسجيل دخول التاجر 
                             form(action="#")
                                 .fieldset
-                                    input(id="email",type="email",class="f-input")
-                                    input(id="password",type="password",class="f-input")
+                                    input(id="email",type="email",class="f-input",placeholder="Email")
+                                    input(id="password",type="password",class="f-input",placeholder="Password")
                                 .fieldset
                                     button(id="submit", type="submit") تسجيل الدخول
                                     button(id="submit", type="submit") إنشاء حساب جديد
@@ -30,17 +35,201 @@ block content
                         option(value="2") ملابس
                         option(value="3") ملابس
                     button(id="submit", type="submit"): i.fa.fa-search
+
+
+    //-  Header -//////////////////////////////////////////////////
+
     header
-        .main-menu
-            .container
-                .main_logo
-                    a(href="#"): img(src="images/logoBeta.png", alt="")
-                button.mobile_menu.block: .icon-menu القائمة الرئيسية
-                nav
-                    ul
-                        li: a(href="#") الدكاكين
-                        li: a(href="#") عروض
-                        li: a(href="#") من نحن
+        .navigation
+            .main-menu
+                .container
+                    .main_logo
+                        a(href="#"): img(src="images/logoBeta.png", alt="")
+                    button.mobile_menu.block: .icon-menu القائمة الرئيسية
+                    nav
+                        ul
+                            li: a(href="#") الدكاكين
+                            li: a(href="#") عروض
+                            li: a(href="#") من نحن
+ 
+        .intro.container
+            h3 موقع <span>دكاكين</span> هو مول إلكترونى يضم العديد نم المحلات التجارية بالأقصر
+            p التجارة الالكترونية هو مفهوم جديد يشرح عملية بيع أو شراء أو تبادل المنتجات والخدمات والمعلومات من خلال شبكات كمبيوترية ومن ضمنها الانترنت.
+            form(action="")
+                input(type="search",placeholder="إبحث ...")
+                select(name="categories")
+                    option(value="1" selected) إختر القسم
+                    option(value="2") ملابس
+                    option(value="3") ملابس
+                button(id="submit", type="submit"): i.fa.fa-search
+
+
+
+    //-  Feature Section -//////////////////////////////////////////////////
+
+    section#features
+        .container
+            h2.sec_headline مميزات الخدمة
+            .features_blocks
+                .block
+                    i.icon-flash
+                    h3 سهولة ومرونة
+                    p التاجر أصبح يستهدف أكبر عدد ممكن من العملاء وكسر حاجز الزمان والمكان وحوال تجارتة من محلية لعالمية
+                .block
+                    i.icon-flash
+                    h3 سهولة ومرونة
+                    p التاجر أصبح يستهدف أكبر عدد ممكن من العملاء وكسر حاجز الزمان والمكان وحوال تجارتة من محلية لعالمية
+                .block
+                    i.icon-flash
+                    h3 سهولة ومرونة
+                    p التاجر أصبح يستهدف أكبر عدد ممكن من العملاء وكسر حاجز الزمان والمكان وحوال تجارتة من محلية لعالمية
+                .block
+                    i.icon-flash
+                    h3 سهولة ومرونة
+                    p التاجر أصبح يستهدف أكبر عدد ممكن من العملاء وكسر حاجز الزمان والمكان وحوال تجارتة من محلية لعالمية
+                .block
+                    i.icon-flash
+                    h3 سهولة ومرونة
+                    p التاجر أصبح يستهدف أكبر عدد ممكن من العملاء وكسر حاجز الزمان والمكان وحوال تجارتة من محلية لعالمية
+                .block
+                    i.icon-flash
+                    h3 سهولة ومرونة
+                    p التاجر أصبح يستهدف أكبر عدد ممكن من العملاء وكسر حاجز الزمان والمكان وحوال تجارتة من محلية لعالمية
+                .block
+                    i.icon-flash
+                    h3 سهولة ومرونة
+                    p التاجر أصبح يستهدف أكبر عدد ممكن من العملاء وكسر حاجز الزمان والمكان وحوال تجارتة من محلية لعالمية
+                .block
+                    i.icon-flash
+                    h3 سهولة ومرونة
+                    p التاجر أصبح يستهدف أكبر عدد ممكن من العملاء وكسر حاجز الزمان والمكان وحوال تجارتة من محلية لعالمية
+                .block
+                    i.icon-flash
+                    h3 سهولة ومرونة
+                    p التاجر أصبح يستهدف أكبر عدد ممكن من العملاء وكسر حاجز الزمان والمكان وحوال تجارتة من محلية لعالمية
+                .block
+                    i.icon-flash
+                    h3 سهولة ومرونة
+                    p التاجر أصبح يستهدف أكبر عدد ممكن من العملاء وكسر حاجز الزمان والمكان وحوال تجارتة من محلية لعالمية
+                .block
+                    i.icon-flash
+                    h3 سهولة ومرونة
+                    p التاجر أصبح يستهدف أكبر عدد ممكن من العملاء وكسر حاجز الزمان والمكان وحوال تجارتة من محلية لعالمية
+                .block
+                    i.icon-flash
+                    h3 سهولة ومرونة
+                    p التاجر أصبح يستهدف أكبر عدد ممكن من العملاء وكسر حاجز الزمان والمكان وحوال تجارتة من محلية لعالمية
+
+
+
+    //-  Feature Section -//////////////////////////////////////////////////
+    
+    section#top24
+        .container
+            h2.sec_headline توب 24
+            .top_filter
+                a(href="",data-filter="*") محلات
+                a(href="",data-filter=".category-1") منتجات
+                a(href="",data-filter=".category-2") عروض
+            ul.top_container
+                li
+                    figure
+                        img(src="images/merchant.jpg", alt="")
+                        figcaption
+                            h3 إسم المنتج
+                            span وصف المنتج
+                            a(href="http://dribbble.com/shots/1115632-Camera") 23.50  
+                                small جنيـــــه
+                li
+                    figure
+                        img(src="images/1.png", alt="")
+                        figcaption
+                            h3 إسم المنتج
+                            span وصف المنتج
+                            a(href="http://dribbble.com/shots/1115632-Camera") 23.50  
+                                small جنيـــــه
+                li
+                    figure
+                        img(src="images/1.png", alt="")
+                        figcaption
+                            h3 إسم المنتج
+                            span وصف المنتج
+                            a(href="http://dribbble.com/shots/1115632-Camera") 23.50  
+                                small جنيـــــه
+                li
+                    figure
+                        img(src="images/1.png", alt="")
+                        figcaption
+                            h3 إسم المنتج
+                            span وصف المنتج
+                            a(href="http://dribbble.com/shots/1115632-Camera") 23.50  
+                                small جنيـــــه
+                li
+                    figure
+                        img(src="images/1.png", alt="")
+                        figcaption
+                            h3 إسم المنتج
+                            span وصف المنتج
+                            a(href="http://dribbble.com/shots/1115632-Camera") 23.50  
+                                small جنيـــــه
+                li
+                    figure
+                        img(src="images/1.png", alt="")
+                        figcaption
+                            h3 إسم المنتج
+                            span وصف المنتج
+                            a(href="http://dribbble.com/shots/1115632-Camera") 23.50  
+                                small جنيـــــه
+                li
+                    figure
+                        img(src="images/1.png", alt="")
+                        figcaption
+                            h3 إسم المنتج
+                            span وصف المنتج
+                            a(href="http://dribbble.com/shots/1115632-Camera") 23.50  
+                                small جنيـــــه
+                li
+                    figure
+                        img(src="images/1.png", alt="")
+                        figcaption
+                            h3 إسم المنتج
+                            span وصف المنتج
+                            a(href="http://dribbble.com/shots/1115632-Camera") 23.50  
+                                small جنيـــــه
+                li
+                    figure
+                        img(src="images/1.png", alt="")
+                        figcaption
+                            h3 إسم المنتج
+                            span وصف المنتج
+                            a(href="http://dribbble.com/shots/1115632-Camera") 23.50  
+                                small جنيـــــه
+                li
+                    figure
+                        img(src="images/1.png", alt="")
+                        figcaption
+                            h3 إسم المنتج
+                            span وصف المنتج
+                            a(href="http://dribbble.com/shots/1115632-Camera") 23.50  
+                                small جنيـــــه
+                li
+                    figure
+                        img(src="images/1.png", alt="")
+                        figcaption
+                            h3 إسم المنتج
+                            span وصف المنتج
+                            a(href="http://dribbble.com/shots/1115632-Camera") 23.50  
+                                small جنيـــــه
+                li
+                    figure
+                        img(src="images/1.png", alt="")
+                        figcaption
+                            h3 إسم المنتج
+                            span وصف المنتج المنتج المنتج المنتج المنتج المنتج
+                            a(href="http://dribbble.com/shots/1115632-Camera") 23.50  
+                                small جنيـــــه
+
+
 
 
 

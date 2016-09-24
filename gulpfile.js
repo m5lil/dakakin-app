@@ -1,10 +1,10 @@
 /* jshint node:true */
+
 'use strict';
 
 // gulp serve           -> build for dev
 // gulp build           -> build for prod
 // gulp serve:dist      -> build and serve the output from the dist build
-
 
 var gulp = require('gulp'),
     gutil = require('gulp-util'),
@@ -32,7 +32,6 @@ var gulp = require('gulp'),
     source = require('vinyl-source-stream'),
     jade = require('gulp-jade'),
     buffer = require('vinyl-buffer');
-
 
 // Options, project specifics
 var options = {};
@@ -63,7 +62,6 @@ options.browserSync = {
     // If you want to run as https, uncomment the 'https' option
     // https: true
 };
-
 
 // Paths settings
 options.distPath = 'app/dist/';         // path to your app distribution folder
@@ -129,18 +127,15 @@ var browserify_config = {
     debug: true
 };
 
-
 // Delete the dist directory
 gulp.task('clean', function (cb) {
     rimraf(options.distPath, cb);
 });
 
-
 // browser-sync task for starting the server. (Use the built-in server or use your existing one by filling the proxy options)
 gulp.task('browser-sync', function () {
     browserSync(options.browserSync);
 });
-
 
 // Jade
 gulp.task('pages', function() {
@@ -155,8 +150,6 @@ gulp.task('pages', function() {
     .pipe(gulp.dest(options.distPath))
     .pipe(reload({stream:true}));
 });
-
-
 
 // Node Sass
 gulp.task('sass', function () {
@@ -208,6 +201,8 @@ gulp.task('modernizr', function () {
 
 gulp.task('pluginsjs', function () {
     return gulp.src(options.paths.js + 'plugins/*.js')
+        .pipe(gutil.env.type === 'prod' ? uglify(options.uglify) : gutil.noop())
+        .pipe(sourcemaps.write('./', {sourceRoot: './'})) // Set folder for sourcemaps to output to
         .pipe(gulp.dest(options.paths.destJs));
 });
 
@@ -293,7 +288,7 @@ function mapError(err) {
 gulp.task('serve', [
         'sass',
         // 'jshint',
-        //'modernizr',
+        'modernizr',
         'pluginsjs',
         'pages',
         'images',
@@ -336,7 +331,7 @@ gulp.task('serve:dist', ['default'], function () {
 gulp.task('build', ['clean'], function () {
     gutil.env.type = 'prod';
     //gulp.start('sass', 'modernizr', 'images', 'svg', 'fonts');
-    gulp.start('sass', 'images', 'svg', 'pluginsjs', 'fonts', 'pages');
+    gulp.start('sass', 'images', 'svg', 'pluginsjs', 'fonts', 'modernizr', 'pages');
 
     var bundler = browserify('./app/src/js/app.js', browserify_config) // Browserify
         .transform(babelify, {presets: ['es2015']}); // Babel tranforms

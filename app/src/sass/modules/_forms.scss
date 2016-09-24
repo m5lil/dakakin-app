@@ -33,6 +33,9 @@ textarea {
         background-color: #eaeded;
         color: #cad2d3;
     }
+    @include mq(medium){
+        display: block;
+    }
 }
 
 textarea{

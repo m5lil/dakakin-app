@@ -8,10 +8,10 @@ WebSite Side Menu
   top:0;
   height:100%;
   z-index:999999;
-  width:300px;
+  width:200px;
   overflow-x:hidden;
   overflow-y:auto;
-  background-color: $aaa;
+  background-color: $second-color;
   color: #fff;
   padding: 20px;
   border-left: 2px solid #fff;
@@ -19,11 +19,11 @@ WebSite Side Menu
 
 .sidr.right{
   left:auto;
-  right:-360px;
+  right:-260px;
 }
 
 .sidr.left{
-  left:-360px;
+  left:-260px;
   right:auto;
 }
 
@@ -86,19 +86,19 @@ Top Bar
         color: $white;
       }
     }
-    h3{
-      text-align: center;
-      margin-top: 20%;
-    }
     .login-form{
+      h3{
+        text-align: center;
+        margin-bottom: 20px;
+      }
       display: none;
     // position: fixed;
       @include center('both');
       z-index: 999;
       color: #fff;
-      width: 350px;
+      width: 300px;
       background: $navy;
-      padding: 30px;
+      padding: 20px;
       button{
         width: 100%;
         display: block;
@@ -142,70 +142,6 @@ Top Bar
   }
 }
 
-header{
-  @include sgradient(linear,left,((#FF5F6D,0%),(#FFC371,100%)));
-  .main-menu{
-    text-align: center;
-    height: 100px;
-    background-color: rgba(255,255,255,0.7);
-    .main_logo{
-      @include span(first 3);
-      padding: 20px;
-      img{
-        min-width: 187px;
-        height: 60px;
-      }
-      @include mq('medium'){
-        @include span(12);
-      }
-    }
-    button{
-      display: none;
-      @include mq('medium'){
-        display: block;
-        height: 39px;
-        color: #fff;
-      }
-    }
-    nav{
-      // max-height: 100px;
-      @include span(last 9);
-      ul{
-        padding: 40px;
-        list-style-type: none;
-        li{
-          display: inline-block;
-          padding: 0 8px;
-
-        }
-      }
-      @include mq('medium'){
-        @include span(12);
-        display: none;
-        background-color: #FFF;
-        ul{
-          width: 100%;
-          padding: 0;
-          li{
-            padding: 10px;
-            display: block;
-            &:hover{
-              color: #FFF;
-              background-color:$navy;
-              a{color: #FFF;}
-            }
-            a{
-              padding: 10px;
-            }
-          }
-        }
-      }
-
-    }
-  }
-}
-
-
 
 /* =======================================================================
 Header
@@ -213,11 +149,315 @@ Header
 
 
 
+header{
+  // position: relative;
+  @include sgradient(linear,left,((#FF5F6D,0%),(#FFC371,100%)));
+  .cssgradients &,{
+    background-color: #FF5F6D;
+  }
+  min-height: 600px !important;
+  .navigation{
+    height: 100px;
+    .main-menu{
+      text-align: center;
+      // height: 100px;
+      background-color: rgba(255,255,255,0.7);
+      .main_logo{
+        @include span(first 3);
+        padding: 20px 0;
+        img{
+          min-width: 187px;
+          height: 60px;
+        }
+        @include mq('medium'){
+          @include span(12);
+        }
+      }
+      button{
+        display: none;
+        @include mq('medium'){
+          display: block;
+          height: 39px;
+          color: #fff;
+        }
+      }
+      nav{
+        // max-height: 100px;
+        position: relative;
+        z-index: 999;
+        @include span(last 9);
+        ul{
+          padding: 40px;
+          list-style-type: none;
+          li{
+            display: inline-block;
+            padding: 0 8px;
 
+          }
+        }
+        @include mq('medium'){
+          @include span(12);
+          display: none;
+          background-color: #FFF;
+          ul{
+            width: 100%;
+            padding: 0;
+            li{
+              padding: 10px;
+              display: block;
+              &:hover{
+                color: #FFF;
+                background-color:$navy;
+                a{color: #FFF;}
+              }
+              a{
+                padding: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .main-menu-stick{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(255,255,255,0.9);
+      border-bottom: 1px solid #eee;
+      z-index: 9999;
+      .main_logo{
+        padding: 6px;
+        img{
+          min-width: 144px;
+          height: 45px;
+        }
+      }
+      nav{
+        ul{
+          padding: 16px;
+        }
+      }
+    }
+  }
+  .intro{
+    text-align: center;
+    width: 90%;
+    margin-top: 140px;
+    @include mq(medium){
+      margin-top: 50px;
+    }
+    // @include center(horizontal);
+    h3{
+      margin: 20px;
+      span{
+        color: #fff;
+      }
+    }
+    form{
+      width: 463px;
+      @include mq(medium){
+        width: 70%;
+      }
+      margin: 40px auto;
+      background-color: $navy;
+      input,select,button{
+        border: 0;
+        color: #596c80;
+        font-size: 14px;
+        height: 50px;
+        @include mq(medium){
+          width: 100% !important;
+        }
+      }
+      input{
+        width: 300px;
+      }
+      select{
+        width: 100px;
+        cursor: pointer;
+        position: relative;
+        &:after{
+          content: '0xe829';
+          font-family: fontello;
+          position: absolute;
 
+        }
+        option{
+          background-color: $navy;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          padding: 10px;
+        }
+      }
+      button{
+        padding: 0 15px;
+        color: #FFF;
+        background-color: transparent;
+        &:hover{
+          background-color: $orange;
+        }
+      }
+    }
 
-.banner {
+  }
 }
+
+
+/* =======================================================================
+ Sections
+========================================================================== */
+ 
+section{
+  padding: 60px 0;
+  h2.sec_headline{
+    text-align: center;
+    margin-bottom: 60px;
+  }
+}
+
+/* =======================================================================
+Feature Section
+========================================================================== */
+
+
+#features{
+  .features_blocks{
+    .block{
+      @include gallery(3 of 12);
+      margin: gutter(12);
+      i{
+        font-size: 30px;
+        color: lighten($orange, 20%);
+      }
+      h3{
+        display: inline-block;
+        padding: 16px 0;
+      }
+      &:hover{
+        i{color: $orange;}
+      }
+    }
+
+    @include clearfix; 
+  }
+}
+
+
+/* =======================================================================
+Top 24 Section
+========================================================================== */
+
+
+#top24{
+
+  background-color: lighten($silver, 5%);
+  .top_filter{
+    text-align: center;
+    a{
+      margin: 10px;
+    }
+  }
+  .top_container{
+    margin: 10px auto;
+    list-style: none;
+    @include clearfix; 
+    li{
+      display: inline-block;
+      margin: gutter(12);
+      @include gallery(4 of 12);
+      @include mq(medium){
+        @include gallery(6 of 12);
+      }
+      @include mq(small){
+        @include gallery(12 of 12);
+        clear: both !important;
+      }
+      text-align: right;
+      // position: relative;
+      figure{
+        margin: 0;
+        overflow: hidden;
+        position: relative;
+        img{
+          max-width: 100%;
+          width: 100%;
+          display: block;
+          position: relative;
+          transition: transform 0.4s;
+          height: 250px;
+        }
+        figcaption{
+          position: absolute;
+          height: 100px;
+          width: 100%;
+          top: auto;
+          bottom: 0;
+          padding: 20px;
+          background: $navy;
+          color: $red;
+          opacity: 0;
+          transform: translateY(100%);
+          transition: transform 0.4s, opacity 0.1s 0.3s;
+          h3{ 
+            margin: 0;
+            padding: 2px 0;
+            color: #fff;
+          }
+          a{
+            text-align: center;
+            padding: 5px 10px;
+            border-radius: 2px;
+            display: inline-block;
+            background: #ed4e6e;
+            color: #fff;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+          }
+        }
+        &:hover img, .touchevents & img{
+          transform: translateY(-50px);
+        }
+        &:hover figcaption,
+        .touchevents & figcaption{
+          opacity: 1;
+          transform: translateY(0px);
+          transition: transform 0.4s, opacity 0.1s;
+        }
+      }
+    }
+  }
+}
+
+
+/* =======================================================================
+Prices Section
+========================================================================== */
+
+
+
+
+/* =======================================================================
+Newsletter Section
+========================================================================== */
+
+
+
+
+
+/* =======================================================================
+Contact Section
+========================================================================== */
+
+
+
+
+/* =======================================================================
+Statics Section
+========================================================================== */
+
 
 
 
@@ -229,39 +469,41 @@ Footer
 ========================================================================== */
 #footer {
   // @include clearfix;
-  p{
+
+  .by{
     text-align: center;
-    width: 100%;
+    background-color: #1a1a1a;
+    #heart {
+      position: relative;
+      width: 20px;
+      height: 12px;
+      display: inline-block;
+      animation: heartbeat 1s infinite;
+
+      &:before,
+      &:after {
+        position: absolute;
+        content: "";
+        left: 10px;
+        top: 0;
+        width: 10px;
+        height: 16px;
+        background: red;
+        border-radius: 50px 50px 0 0;
+        transform: rotate(-45deg);
+        transform-origin: 0 100%;
+      }
+
+      &:after {
+        left: 0;
+        transform: rotate(45deg);
+        transform-origin: 100% 100%;
+      }
+    } 
   }
   
-  #heart {
-    position: relative;
-    width: 20px;
-    height: 12px;
-    display: inline-block;
-    animation: heartbeat 1s infinite;
-
-    &:before,
-    &:after {
-      position: absolute;
-      content: "";
-      left: 10px;
-      top: 0;
-      width: 10px;
-      height: 16px;
-      background: red;
-      border-radius: 50px 50px 0 0;
-      transform: rotate(-45deg);
-      transform-origin: 0 100%;
-    }
-
-    &:after {
-      left: 0;
-      transform: rotate(45deg);
-      transform-origin: 100% 100%;
-    }
-  } 
-
+  background: #262626 url(../images/footer-graph2.jpg) no-repeat center bottom;
+  padding: 18px 0px 40px 0px;
 }
 
 
@@ -271,31 +513,12 @@ Footer
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 9;
+  z-index: 999;
   width: 30px;
   height: 30px;
   svg {
     cursor: pointer;
   }
 }
-
-/* =======================================================================
-Nav
-========================================================================== */
-.primary-nav {
-}
-
-
-
-
-
-.content{
-  // @include clearfix;
-  p{
-    @include text-shadow(0.5);
-  }
-}
-
-
 
 

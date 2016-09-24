@@ -130,6 +130,30 @@
 }
 
 
+
+/// Vertically centers block elements with known height.
+/// @access public
+/// @param {Length} $height - Element's height
+/// @example scss - Usage
+///   .foo {
+///     @include center-h(42px);
+///   }
+/// @example css - Result
+///   .foo {
+///     position: absolute;
+///     top: 50%;
+///     height: 42px;
+///     margin-top: -21px;
+///   }
+@mixin center-h($height) {
+    position: absolute;
+    top: 50%;
+    height: $height;
+    margin-top: -($height / 2);
+}
+
+
+
 // Usage:  @include opacity(0.5);
 @mixin opacity($opacity) {
     opacity: $opacity;
@@ -194,28 +218,6 @@
     }
 }
 
-
-
-/// Vertically centers block elements with known height.
-/// @access public
-/// @param {Length} $height - Element's height
-/// @example scss - Usage
-///   .foo {
-///     @include center-h(42px);
-///   }
-/// @example css - Result
-///   .foo {
-///     position: absolute;
-///     top: 50%;
-///     height: 42px;
-///     margin-top: -21px;
-///   }
-@mixin center-h($height) {
-    position: absolute;
-    top: 50%;
-    height: $height;
-    margin-top: -($height / 2);
-}
 
 
 /// Adds a thin black line above the element, and a thin gray line below the element, creating an inlay effect.
